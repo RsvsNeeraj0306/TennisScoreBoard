@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Mangatha Game</title>
+<style>
+    #game-container {
+      text-align: center;
+    }
+    .card {
+      display: inline-block;
+      width: 70px;
+      height: 100px;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 18px;
+      line-height: 100px;
+      margin: 5px;
+    }
+    .inpile, .outpile {
+      display: inline-block;
+      width: 100px;
+      height: 140px;
+      border: 2px solid black;
+      text-align: center;
+      font-size: 14px;
+      margin: 80px;
+      vertical-align: top;
+    }
+</style>
+</head>
+<body>
+<div id="game-container">
+<h1>Mangatha Game - 2 Players</h1>
+<form id="game-form" method="post" action="/learning-web/PlayMangatha">
+
+<br>
+
+<label for="player1-name">Player 1 Name: </label>
+<input type="text" id="player1-name" th:value="${player1Name}"><br><br>
+<label for="player1-bet">Player 1 Bet Amount: </label>
+<input type="text" id="player1-bet" th:value="${player1Bet}"><br><br>
+<label for="player1-number">Player 1 - Card Number: </label>
+<select id="player1-number" th:value="${player1CardNumber}">
+<option value="A">A</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+<label for="player1-type">Type: </label>
+<select id="player1-type" th:value="${player1CardType}">
+<option value="S">Spades</option>
+<option value="C">Clubs</option>
+<option value="H">Hearts</option>
+<option value="D">Diamonds</option>    
+</select>
+<br><br>
+<label for="player1-position">Position: </label>
+<select id="player1-position" th:value="${player1Position}">
+<option value="in">In</option>
+<option value="out">Out</option>
+</select>
+<br><br>
+<label for="player2Name">Player 2 Name: </label>
+<input type="text" id="player2Name" th:value="${player2Name}"><br><br>
+<label for="player2BetStr">Player 2 Bet Amount: </label>
+<input type="text" id="player2BetStr" th:value="${player2BetStr}"><br><br>
+<label for="player2CardNumber">Player 2 - Card Number: </label>
+<select id="player2CardNumber" th:value="${player2CardNumber}">
+<option value="A">A</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+
+</select>
+<label for="player2CardType">Type: </label>
+<select id="player2CardType" th:value="${player2CardType}">
+<option value="S">Spades</option>
+<option value="C">Clubs</option>
+<option value="H">Hearts</option>
+<option value="D">Diamonds</option>  
+</select>
+<br><br>
+<label for="player2Position">Position: </label>
+<select id="player2Position" th:value="${player2Position}">
+<option value="in">In</option>
+<option value="out">Out</option>
+</select>
+<br><br>
+ <form action="mangathaDeck.html">
+        <button id="start-btn" onclick="">Start Game</button>
+    <div id="deck">
+        <h2>Deck</h2>
+        <form th:action="@{}" method="post">
+            <button type="submit">Draw Card</button>
+        </form>
+    </div>
+    
+    <div id="inpile">
+        <h2>In Pile</h2>
+        <ul>
+            <li th:each="card : ${player:${players}.getGuess()}" th:text="${game.cardCode}"></li>
+        </ul>
+    </div>
+    
+    <div id="outpile">
+        <h2>Out Pile</h2>
+        <ul>
+            <li th:each="player : ${outPile}" th:text="${player.cardCode}"></li>
+        </ul>
+    </div>
+    </form>
+</form>
+<p id="result" th:text="${result}"></p>
+</div>
+<!--<script>-->
+<!--// document.getElementById("start-btn").addEventListener("click", function() {-->
+<!--  //  document.getElementById("game-form").submit();-->
+<!--  //  window.location.href = 'mangathaDeck.html';-->
+<!--//});-->
+
+
+
+<!--</script>-->
+</body>
+</html>

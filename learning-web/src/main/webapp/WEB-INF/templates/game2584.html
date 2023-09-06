@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GAME-2584</title>
+<style>
+        body {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: lightblue;
+        }
+        .h1 {
+            font-size: large;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .grid-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            width: 70px;
+            height: 70px;
+            background-color: #FAF0E6;
+            border-radius: 5px;
+        }
+	
+	    .grid-container {
+		    display: grid;
+		    grid-template-columns: repeat(4, 1fr);
+		    gap: 10px;
+		    width: 310px;
+		    height: 310px;
+		    border-radius: 10px;
+		    padding: 30px;
+		    background-color: rgb(153, 193, 241);
+		    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+		    margin: 0 auto;
+	    }
+
+</style>
+</head>
+<body>
+<h1> WELCOME TO GAME-2584 </h1>
+<div class="grid-container">
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell1}">0</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell2}">1</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell3}">2</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell4}">3</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell5}">4</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell6}">5</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell7}">6</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell8}">7</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell9}">8</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell10}">9</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell11}">10</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell12}">11</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell13}">12</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell14}">13</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell15}">14</span>
+		</p>
+		</div>
+		<div class="grid-item">
+		<p>
+		<span th:text="${cell16}">15</span>
+		</p>
+		</div>
+		</div>
+		<h2>
+    		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+		</h2>
+
+ 
+ <div class="controls">
+    <form action="" method="post">
+        <button class="game-button up" id="btn-up" value="Up" name="action"><i class="fas fa-arrow-up"></i> Up</button><br>
+        <button class="game-button down" id="btn-down" value="Down" name="action"><i class="fas fa-arrow-down"></i> Down</button>
+        <button class="game-button left" id="btn-left" value="Left" name="action"><i class="fas fa-arrow-left"></i> Left</button><br>
+        <button class="game-button right" id="btn-right" value="Right" name="action"><i class="fas fa-arrow-right"></i> Right</button>
+    </form>
+</div>
+
+<div class="scores">
+<p>Score: <span id="current-score" th:text="${score}"></span></p>
+<p>Highest Score: <span id="highest-score">0</span></p>
+</div>
+    <script>
+        // Initialize the game
+        const btnUp = document.getElementById('btn-up');
+        const btnDown = document.getElementById('btn-down');
+        const btnLeft = document.getElementById('btn-left');
+        const btnRight = document.getElementById('btn-right');
+
+        btnUp.addEventListener('click', () => {
+            console.log('Up button clicked');
+        });
+        btnDown.addEventListener('click', () => {
+            console.log('Down button clicked');
+        });
+        btnLeft.addEventListener('click', () => {
+            console.log('Left button clicked');
+        });
+        btnRight.addEventListener('click', () => {
+            console.log('Right button clicked');
+        });
+</script>
+</body>
+
+</html>

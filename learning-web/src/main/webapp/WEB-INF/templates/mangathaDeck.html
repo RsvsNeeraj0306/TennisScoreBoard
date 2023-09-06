@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Mangatha Game - Deck of Cards</title>
+<style>
+    .card {
+      display: inline-block;
+      width: 70px;
+      height: 100px;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 18px;
+      line-height: 100px;
+      margin: 5px;
+    }
+    .in-box, .out-box {
+      display: inline-block;
+      width: 100px;
+      height: 140px;
+      border: 2px solid black;
+      text-align: center;
+      font-size: 14px;
+      margin: 80px;
+      vertical-align: top;
+    }
+</style>
+</head>
+<body>
+<h1>Deck of Cards</h1>
+
+<!-- In Box -->
+<div class="in-box">
+<h2>IN Box</h2>
+<div class="card" th:if="${inCard}">
+<span th:text="${inCard.value}"></span> <span th:text="${inCard.suit}"></span>
+</div>
+</div>
+
+
+
+<!-- Spades -->
+<div class="card" th:each="cardValue : ${cardValues}">
+<span th:text="${cardValue}"></span> &#9824;
+</div>
+
+<!-- Clubs -->
+<div class="card" th:each="cardValue : ${cardValues}">
+<span th:text="${cardValue}"></span> &#9827;
+</div>
+
+<!-- Hearts -->
+<div class="card" th:each="cardValue : ${cardValues}">
+<span th:text="${cardValue}"></span> &#9829;
+</div>
+
+<!-- Diamonds -->
+<div class="card" th:each="cardValue : ${cardValues}">
+<span th:text="${cardValue}"></span> &#9830;
+</div>
+
+<!-- Out Box -->
+<div class="out-box">
+<h2>OUT Box</h2>
+<div class="card" th:if="${outCard}">
+<span th:text="${outCard.value}"></span> <span th:text="${outCard.suit}"></span>
+</div>
+</div>
+</body>
+</html>
